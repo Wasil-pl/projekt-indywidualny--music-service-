@@ -1,0 +1,31 @@
+.header {
+  height: 100vh;
+  background-image: url('../../images/background.jpg');
+  position: relative;
+  background-size: cover;
+  background-attachment: fixed;
+  margin: auto;
+  position: relative;
+
+  .logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    font-weight: $font-black;
+    text-align: center;
+
+    .logo__title {
+      font-size: 200px;
+      text-shadow: 0 0 118px rgba(0, 0, 0, 0.39);
+      letter-spacing: 120px;
+    }
+
+    .logo__subtitle {
+      line-height: 72px;
+      letter-spacing: 10.8px;
+      font-size: 36px;
+    }
+  }
+}

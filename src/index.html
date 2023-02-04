@@ -4,12 +4,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title></title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <title>TASTE</title>
 </head>
 <body>
 
+  <header class="header">
+    <div class="container">
+      <div class="header__wrapper">
+        <div class="logo">
+          <h1 class="logo__title">taste</h1>
+          <h2 class="logo__subtitle">engage<br>in<br>art</h2>
+        </div>
+      </div>
+    </div>
+  </header>
+  <nav>
+    <div class="main-nav">
+      <a href="#home">Home</a>
+      <a href="#search">Search</a>
+      <a href="#discover">Discover</a>
+    </div>
+  </nav>
 
-  <script src="js/script.js"></script>
+  <div id="pages">
+    <section id="home" >
+      <div class="home-wrapper container"></div>
+    </section>
+    <section id="search">
+      <div id="product-list" class="product-list container"></div>
+    </section>
+    <section id="discover">
+      <div class="booking-wrapper container"></div>
+    </section>
+  </div>
+
+
+  <script src="js/app.js" type="module"></script>
 </body>
 </html>

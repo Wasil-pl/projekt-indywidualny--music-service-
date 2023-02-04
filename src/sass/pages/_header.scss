@@ -1,9 +1,8 @@
 .header {
   height: 100vh;
-  background-image: url('../../images/background.jpg');
-  position: relative;
+  background-image: linear-gradient(rgba($color-dark,0),rgba($color-dark,1.2)), url('../../images/background.jpg');
+  background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
   margin: auto;
   position: relative;
 
@@ -20,6 +19,7 @@
       font-size: 200px;
       text-shadow: 0 0 118px rgba(0, 0, 0, 0.39);
       letter-spacing: 120px;
+      margin-bottom: 68px;
     }
 
     .logo__subtitle {

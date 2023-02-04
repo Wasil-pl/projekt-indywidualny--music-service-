@@ -7,4 +7,19 @@ body {
   font-family: $font-main;
   color: $color-light;
   background-color: $color-dark;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+#pages {
+  > * {
+    display: none;
+  }
+
+  > .active {
+    display: block;
+  }
 }

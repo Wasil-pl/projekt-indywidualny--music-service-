@@ -1,0 +1,17 @@
+.main-nav {
+  margin: 32px 0 113px;
+
+  a {
+    font-size: 30px;
+    font-weight: $font-semibold;
+    line-height: 27px;
+    text-transform: uppercase;
+    letter-spacing: 2.25px;
+    margin: 0 50px;
+    color: $color-grey;
+  }
+
+  .active {
+    color: $color-light;
+  }
+}

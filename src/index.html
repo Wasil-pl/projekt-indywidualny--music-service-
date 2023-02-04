@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="vendor/green-audio-player.css">
   <link rel="stylesheet" href="css/style.css">
   <title>TASTE</title>
 </head>
@@ -22,6 +23,7 @@
       </div>
     </div>
   </header>
+
   <nav>
     <div class="main-nav">
       <a href="#home">Home</a>
@@ -32,17 +34,54 @@
 
   <div id="pages">
     <section id="home" >
-      <div class="home-wrapper container"></div>
+      <div id="home-wrapper" class="home-wrapper container"></div>
     </section>
     <section id="search">
-      <div id="product-list" class="product-list container"></div>
+      <div id="search-list" class="search-list container"></div>
     </section>
     <section id="discover">
-      <div class="booking-wrapper container"></div>
+      <div class="discover-wrapper container"></div>
     </section>
   </div>
 
+  <script id="template-menu-songs" type="text/x-handlebars-template">
+    <article class="song">
+      <h3 class="songTitle">
+        <span class="author">{{ author }}</span> - {{ title }}
+      </h3>
+      <div class="player">
+        <audio crossorigin>
+            <source src="songs/{{ filename }}" type="audio/mpeg">
+        </audio>
+      </div>
+      <div class="description-wrapper">
+        <h4 class="categories">Categories: {{ categories }}</h4>
+        <h4 class="ranking">#{{ ranking }} in the ranking</h4>
+      </div>
+    </article>
+  </script>
 
+  <script id="template-subscribe" type="text/x-handlebars-template">
+    <article class="subscripe">
+      <h3>subscripe now</h3>
+      <div>
+        <button type="button">Join now</button>
+      </div>
+      <div>
+        <h4>Dean <br>Hen<span class="son">son</span></h4>
+      </div>
+      <div>
+        <img src="images/artist.jpg" alt="artist">
+      </div>
+      <div>
+        <h4>new album</h4>
+        <p>Available only for subscribers</p>
+      </div>
+    </article>
+  </script>
+
+  <script src="vendor/green-audio-player.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
   <script src="js/app.js" type="module"></script>
 </body>
 </html>

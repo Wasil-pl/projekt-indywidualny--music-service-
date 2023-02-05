@@ -2,10 +2,12 @@ export const select = {
   templateOf: {
     menuSongs: '#template-menu-songs',
     subscribe: '#template-subscribe',
+    search: '#template-search',
   },
   containerOf: {
     menu: '#home-wrapper',
     pages: '#pages',
+    search: '#search-list',
   },
   all: {
     player: '.player',
@@ -34,4 +36,5 @@ export const settings = {
 export const templates = {
   menuSongs: Handlebars.compile(document.querySelector(select.templateOf.menuSongs).innerHTML),
   subscribe: Handlebars.compile(document.querySelector(select.templateOf.subscribe).innerHTML),
+  search: Handlebars.compile(document.querySelector(select.templateOf.search).innerHTML),
 };

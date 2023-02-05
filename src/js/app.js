@@ -1,6 +1,7 @@
 import { select, settings, classNames } from './settings.js';
 import SongsPlayer from './components/home.js';
 import Subscribe from './components/subscribe.js';
+import Search from './components/search.js';
 
 const app = {
 
@@ -82,6 +83,7 @@ const app = {
     }
 
     new Subscribe();
+
   },
 
   initGreenAudioPlayer: function(){
@@ -92,11 +94,18 @@ const app = {
     });
   },
 
+  initSearch() {
+    const thisApp = this;
+
+    new Search(thisApp.data, thisApp.songHTML);
+  },
+
   init: function() {
     const thisApp = this;
 
     thisApp.initPages();
     thisApp.initData();
+    thisApp.initSearch();
 
   }
 };

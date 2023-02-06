@@ -5,9 +5,10 @@ export const select = {
     search: '#template-search',
   },
   containerOf: {
-    menu: '#home-wrapper',
+    home: '#home-wrapper',
     pages: '#pages',
     search: '#search-list',
+    songs: '#songs-list',
   },
   all: {
     player: '.player',
@@ -24,6 +25,10 @@ export const classNames = {
   pages: {
     active: 'active',
   },
+  search: {
+    hidden: 'hidden',
+    visible: 'visible',
+  }
 };
 
 export const settings = {

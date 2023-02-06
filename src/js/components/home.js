@@ -1,25 +1,33 @@
-import { select, templates } from '../settings.js';
-import utils from '../utils.js';
+import { select } from '../settings.js';
+import Subscribe from './Subscribe.js';
+import SongPlayer from './SongPlayer.js';
 
-class SongsPlayer {
-  constructor(id, data) {
-    const thisSongs = this;
+class Home {
+  constructor(songList) {
+    const thisHome = this;
 
-    thisSongs.id = id;
-    thisSongs.data = data;
-
-    thisSongs.renderInMenu();
+    thisHome.songList = songList;
+    thisHome.renderInMenu();
+    thisHome.initSongs();
+    thisHome.initSubscribe();
   }
 
   renderInMenu() {
-    const thisSongs = this;
+    const thisHome = this;
+    thisHome.songsContainer = document.querySelector(select.containerOf.home);
+  }
 
-    const generatedHTML = templates.menuSongs(thisSongs.data);
-    thisSongs.element = utils.createDOMFromHTML(generatedHTML);
-    const menuContainer = document.querySelector(select.containerOf.menu);
-    menuContainer.appendChild(thisSongs.element);
+  initSongs() {
+    const thisSearch = this;
 
+    for (let song in thisSearch.songList){
+      new SongPlayer (thisSearch.songList[song].id, thisSearch.songList[song], thisSearch.songsContainer);
+    }
+  }
+
+  initSubscribe() {
+    new Subscribe();
   }
 }
 
-export default SongsPlayer;
+export default Home;

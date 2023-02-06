@@ -1,7 +1,6 @@
 import { select, settings, classNames } from './settings.js';
-import SongsPlayer from './components/home.js';
-import Subscribe from './components/subscribe.js';
-import Search from './components/search.js';
+import Home from './components/Home.js';
+import Search from './components/Search.js';
 
 const app = {
 
@@ -59,54 +58,43 @@ const app = {
     const thisApp = this;
 
     thisApp.data = {};
-    console.log('thisApp.data:', thisApp.data);
-
     const url = settings.db.url + '/' + settings.db.songs;
 
-    fetch(url)
+    return fetch(url)
       .then(function(rawResponse){
         return rawResponse.json();
       })
-
       .then(function(parsedResponse){
         thisApp.data.songs = parsedResponse;
-        thisApp.initSongs();
-        thisApp.initGreenAudioPlayer();
       });
   },
 
-  initSongs() {
-    const thisApp = this;
-
-    for (let song in thisApp.data.songs){
-      new SongsPlayer (thisApp.data.songs[song].id, thisApp.data.songs[song]);
-    }
-
-    new Subscribe();
-
-  },
-
   initGreenAudioPlayer: function(){
-    // eslint-disable-next-line no-undef
     GreenAudioPlayer.init({
-      selector: '.player', // inits Green Audio Player on each audio container that has class "player"
+      selector:  select.all.player, // inits Green Audio Player on each audio container that has class "player"
       stopOthersOnPlay: true
     });
   },
 
+  initHome() {
+    const thisApp = this;
+    new Home(thisApp.data.songs);
+  },
+
   initSearch() {
     const thisApp = this;
-
-    new Search(thisApp.data, thisApp.songHTML);
+    new Search(thisApp.data.songs);
   },
 
   init: function() {
     const thisApp = this;
 
     thisApp.initPages();
-    thisApp.initData();
-    thisApp.initSearch();
-
+    thisApp.initData().then(function () {
+      thisApp.initHome();
+      thisApp.initSearch();
+      thisApp.initGreenAudioPlayer();
+    });
   }
 };
 

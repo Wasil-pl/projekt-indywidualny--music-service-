@@ -38,6 +38,7 @@
     </section>
     <section id="search">
       <div id="search-list" class="search-list container"></div>
+      <div id="songs-list" class="songs-list container"></div>
     </section>
     <section id="discover">
       <div class="discover-wrapper container"></div>
@@ -46,14 +47,15 @@
 
   <script id="template-search" type="text/x-handlebars-template">
     <div class="search-input">
-      <input type="text" id="myInput" onkeyup="searchSong()" placeholder="Search for song..">
+      <input type="text" id="myInput"  placeholder="Search for song..">
     </div>
   </script>
 
   <script id="template-menu-songs" type="text/x-handlebars-template">
-    <article class="song">
+    <article class="song" song-id="{{ id }}" author-title="{{ author }} {{ title }}">
       <h3 class="songTitle">
-        <span class="author">{{ author }}</span> - {{ title }}
+        <span class="author">{{ author }}</span>
+        <span class="title"> - {{ title }}</span>
       </h3>
       <div class="player">
         <audio crossorigin>

@@ -13,7 +13,7 @@ class Subscribe {
 
     const generatedHTML = templates.subscribe();
     thisSubscribe.element = utils.createDOMFromHTML(generatedHTML);
-    const menuContainer = document.querySelector(select.containerOf.menu);
+    const menuContainer = document.querySelector(select.containerOf.home);
     menuContainer.appendChild(thisSubscribe.element);
 
   }

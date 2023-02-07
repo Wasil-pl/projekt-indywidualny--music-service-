@@ -41,12 +41,14 @@
       <div id="songs-list" class="songs-list container"></div>
     </section>
     <section id="discover">
-      <div class="discover-wrapper container"></div>
+      <div id="discover-wrapper" class="discover-wrapper container"></div>
     </section>
   </div>
 
   <script id="template-search" type="text/x-handlebars-template">
     <div class="search-input">
+      <h3>search</h3>
+      <p>Name</p>
       <input type="text" id="myInput"  placeholder="Search for song..">
     </div>
   </script>
@@ -86,6 +88,13 @@
         <p>Available only for subscribers</p>
       </div>
     </article>
+  </script>
+
+  <script id="template-discover" type="text/x-handlebars-template">
+    <div class="discover">
+      <h3>Discover</h3>
+      <p>Give it a try!</p>
+    </div>
   </script>
 
   <script src="vendor/green-audio-player.js"></script>

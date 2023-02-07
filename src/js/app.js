@@ -1,6 +1,7 @@
 import { select, settings, classNames } from './settings.js';
 import Home from './components/Home.js';
 import Search from './components/Search.js';
+import Discover from './components/Discover.js';
 
 const app = {
 
@@ -86,6 +87,11 @@ const app = {
     new Search(thisApp.data.songs);
   },
 
+  initDiscover() {
+    const thisApp = this;
+    new Discover(thisApp.data.songs);
+  },
+
   init: function() {
     const thisApp = this;
 
@@ -93,6 +99,7 @@ const app = {
     thisApp.initData().then(function () {
       thisApp.initHome();
       thisApp.initSearch();
+      thisApp.initDiscover();
       thisApp.initGreenAudioPlayer();
     });
   }

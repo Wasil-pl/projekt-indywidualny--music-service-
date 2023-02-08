@@ -14,6 +14,7 @@ export const select = {
   },
   all: {
     player: '.player',
+    playPauseBtn: '#home .holder',
     article: 'article',
   },
   nav: {

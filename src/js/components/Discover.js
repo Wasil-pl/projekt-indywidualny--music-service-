@@ -3,10 +3,12 @@ import SongPlayer from './SongPlayer.js';
 import utils from '../utils.js';
 
 class Discover {
-  constructor(songList) {
+  constructor(songList, mostRecentCategory) {
     const thisDiscover = this;
 
     thisDiscover.songList = songList;
+    thisDiscover.mostRecentCategory = mostRecentCategory;
+    console.log('thisDiscover.mostRecentCategory:', thisDiscover.mostRecentCategory);
     thisDiscover.getElements();
     thisDiscover.renderInMenu();
     thisDiscover.initSongs();

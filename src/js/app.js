@@ -89,7 +89,28 @@ const app = {
 
   initDiscover() {
     const thisApp = this;
-    new Discover(thisApp.data.songs);
+    new Discover(thisApp.data.songs, thisApp.mostRecentCategory);
+  },
+
+  getCategories() {
+    const thisApp = this;
+
+    thisApp.mostRecentCategory = [];
+
+    const home = document.getElementById('home');
+    const songs = home.getElementsByClassName('song');
+
+    for ( let song of songs ) {
+      const playPauseBtn = song.querySelector('.play-pause-btn');
+      playPauseBtn.addEventListener('click', function(){
+        const categoriesArray = song.querySelector('.categories').innerHTML.replace('Categories: ', '').split(',');
+        console.log('categoriesLink:', categoriesArray);
+        for (let categories of categoriesArray) {
+          thisApp.mostRecentCategory.push(categories);
+        }
+        console.log('mostRecentCategory:', thisApp.mostRecentCategory);
+      });
+    }
   },
 
   init: function() {
@@ -101,6 +122,7 @@ const app = {
       thisApp.initSearch();
       thisApp.initDiscover();
       thisApp.initGreenAudioPlayer();
+      thisApp.getCategories();
     });
   }
 };

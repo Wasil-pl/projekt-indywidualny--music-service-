@@ -2,10 +2,9 @@ import { templates } from '../settings.js';
 import utils from '../utils.js';
 
 class SongPlayer {
-  constructor(id, data, songContainer) {
+  constructor(data, songContainer) {
     const thisSongs = this;
 
-    thisSongs.id = id; // TODO: czy ID nie mamy w data? Jeśli tak, może nie trzeba go przekazywać?
     thisSongs.data = data;
     thisSongs.songContainer = songContainer;
 

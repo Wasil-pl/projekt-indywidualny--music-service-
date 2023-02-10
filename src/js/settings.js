@@ -4,6 +4,7 @@ export const select = {
     subscribe: '#template-subscribe',
     search: '#template-search',
     discover: '#template-discover',
+    categoryWidget: '#template-category-widget',
   },
   containerOf: {
     home: '#home-wrapper',
@@ -11,6 +12,8 @@ export const select = {
     search: '#search-list',
     songs: '#songs-list',
     discover: '#discover-wrapper',
+    categoryWidget: '#category-widget',
+    categoryList: '.categories-list',
   },
   all: {
     player: '.player',
@@ -29,12 +32,14 @@ export const classNames = {
   pages: {
     active: 'active',
   },
+  active: 'active',
   search: {
     hidden: 'hidden',
   },
   discover: {
     hidden: 'hidden',
-  }
+  },
+  hidden: 'hidden',
 };
 
 export const settings = {
@@ -49,4 +54,5 @@ export const templates = {
   subscribe: Handlebars.compile(document.querySelector(select.templateOf.subscribe).innerHTML),
   search: Handlebars.compile(document.querySelector(select.templateOf.search).innerHTML),
   discover: Handlebars.compile(document.querySelector(select.templateOf.discover).innerHTML),
+  categoryWidget: Handlebars.compile(document.querySelector(select.templateOf.categoryWidget).innerHTML),
 };

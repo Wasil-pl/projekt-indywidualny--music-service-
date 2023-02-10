@@ -7,6 +7,7 @@ class Home {
     const thisHome = this;
 
     thisHome.songList = songList;
+    console.log('thisHome.songList:', thisHome.songList);
     thisHome.renderInMenu();
     thisHome.initSongs();
     thisHome.initSubscribe();
@@ -21,7 +22,7 @@ class Home {
     const thisSearch = this;
 
     for (let song in thisSearch.songList){
-      new SongPlayer (thisSearch.songList[song].id, thisSearch.songList[song], thisSearch.songsContainer);
+      new SongPlayer (thisSearch.songList[song], thisSearch.songsContainer);
     }
   }
 

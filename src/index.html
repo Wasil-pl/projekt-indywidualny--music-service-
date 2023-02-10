@@ -34,6 +34,7 @@
 
   <div id="pages">
     <section id="home" >
+      <div id="category-widget" class="category-widget container"></div>
       <div id="home-wrapper" class="home-wrapper container"></div>
     </section>
     <section id="search">
@@ -44,6 +45,19 @@
       <div id="discover-wrapper" class="discover-wrapper container"></div>
     </section>
   </div>
+
+  <script id="template-category-widget" type="text/x-handlebars-template">
+    <div class="category-container">
+      <div>
+        <h3>Categories</h3>
+        <ul class="categories-list">
+          {{#each categories}}
+          <li>{{ this }}</li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </script>
 
   <script id="template-search" type="text/x-handlebars-template">
     <div class="search-input">

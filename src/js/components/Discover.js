@@ -37,7 +37,7 @@ class Discover {
     const thisDiscover = this;
 
     for (let song in thisDiscover.songList){
-      new SongPlayer (thisDiscover.songList[song].id, thisDiscover.songList[song], thisDiscover.dom.discoverContainer);
+      new SongPlayer (thisDiscover.songList[song], thisDiscover.dom.discoverContainer);
     }
 
     const songListId = [];

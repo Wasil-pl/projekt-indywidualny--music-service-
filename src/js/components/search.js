@@ -36,7 +36,7 @@ class Search {
     const thisSearch = this;
 
     for (let song in thisSearch.songList){
-      new SongPlayer (thisSearch.songList[song].id, thisSearch.songList[song], thisSearch.dom.songsContainer);
+      new SongPlayer (thisSearch.songList[song], thisSearch.dom.songsContainer);
     }
 
     for ( let song of thisSearch.songs ) {
@@ -58,7 +58,9 @@ class Search {
         if (AuthorAndTitle.indexOf(search) == -1) {
           song.classList.add(classNames.search.hidden);
 
-        } else if (AuthorAndTitle.indexOf(search) != -1) {
+        }
+
+        else if (AuthorAndTitle.indexOf(search) != -1) {
           song.classList.remove(classNames.search.hidden);
         }
 

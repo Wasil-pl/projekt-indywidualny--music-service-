@@ -2,6 +2,7 @@ import { select, settings, classNames } from './settings.js';
 import Home from './components/Home.js';
 import Search from './components/Search.js';
 import Discover from './components/Discover.js';
+import CategoryWidget from './components/CategoryWidget.js';
 
 const app = {
 
@@ -59,6 +60,9 @@ const app = {
     const thisApp = this;
 
     thisApp.data = {};
+    thisApp.categoriesArray = {categories: []};
+
+
     const url = settings.db.url + '/' + settings.db.songs;
 
     return fetch(url)
@@ -67,6 +71,13 @@ const app = {
       })
       .then(function(parsedResponse){
         thisApp.data.songs = parsedResponse;
+        for ( let song of thisApp.data.songs) {
+          for ( let category of song.categories) {
+            if (!thisApp.categoriesArray.categories.includes(category)) {
+              thisApp.categoriesArray.categories.push(category);
+            }
+          }
+        }
       });
   },
 
@@ -80,6 +91,12 @@ const app = {
   initHome() {
     const thisApp = this;
     new Home(thisApp.data.songs);
+  },
+
+  initCategoryWidget(){
+    const thisApp = this;
+
+    new CategoryWidget(thisApp.categoriesArray);
   },
 
   initSearch() {
@@ -122,6 +139,7 @@ const app = {
       thisApp.initSearch();
       thisApp.initDiscover();
       thisApp.initGreenAudioPlayer();
+      thisApp.initCategoryWidget();
       thisApp.getCategories();
     });
   }

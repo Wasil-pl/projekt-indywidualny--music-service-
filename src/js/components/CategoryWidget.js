@@ -38,6 +38,7 @@ class CategoryWidget {
       allLinks[link].addEventListener('click', function(event){
         event.preventDefault();
         const clickedElement = this;
+        let clickedCategory = 0;
 
         for (let link = 0; link < allLinks.length; link++) {
           if (clickedElement != allLinks[link]) {
@@ -46,30 +47,14 @@ class CategoryWidget {
 
           else if (clickedElement.classList.contains(classNames.active) === true) {
             clickedElement.classList.remove(classNames.active);
+            clickedCategory = 0;
           }
 
           else {
             clickedElement.classList.add(classNames.active);
+            clickedCategory = clickedElement.innerHTML.toLowerCase();
           }
         }
-
-        const clickedCategory = clickedElement.innerHTML.toLowerCase();
-        console.log('thisCategoryWidget.category:', thisCategoryWidget.category);
-
-        // const songs = document.querySelectorAll('.home-wrapper .song');
-
-        // for (let song of songs) {
-        //   const category = song.querySelector('.categories').innerHTML.toLowerCase().replace('categories: ', '').replace(',', ' ');
-        //   console.log('category:', category);
-
-        //   if (category.indexOf(clickedCategory) == -1) {
-        //     song.classList.add(classNames.hidden);
-        //   }
-
-        //   else {
-        //     song.classList.remove(classNames.hidden);
-        //   }
-        // }
 
         thisCategoryWidget.initfilter(clickedCategory);
       });
@@ -89,6 +74,10 @@ class CategoryWidget {
       }
 
       else {
+        song.classList.remove(classNames.hidden);
+      }
+
+      if ( clickedCategory == 0 ) {
         song.classList.remove(classNames.hidden);
       }
     }

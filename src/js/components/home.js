@@ -7,7 +7,6 @@ class Home {
     const thisHome = this;
 
     thisHome.songList = songList;
-    console.log('thisHome.songList:', thisHome.songList);
     thisHome.renderInMenu();
     thisHome.initSongs();
     thisHome.initSubscribe();

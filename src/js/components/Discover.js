@@ -8,7 +8,6 @@ class Discover {
 
     thisDiscover.songList = songList;
     thisDiscover.mostRecentCategory = mostRecentCategory;
-    console.log('thisDiscover.mostRecentCategory:', thisDiscover.mostRecentCategory);
     thisDiscover.getElements();
     thisDiscover.renderInMenu();
     thisDiscover.initSongs();

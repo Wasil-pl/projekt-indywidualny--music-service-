@@ -22,3 +22,11 @@
     }
   }
 }
+
+.category-widget {
+  .categories-list {
+    .active {
+      color: $color-red
+    }
+  }
+}

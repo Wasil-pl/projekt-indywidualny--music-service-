@@ -21,6 +21,7 @@ export const select = {
     player: '.player',
     playPauseBtn: '.play-pause-btn',
     article: 'article',
+    searchBtn: '.search-btn',
   },
   nav: {
     links: '.main-nav a',

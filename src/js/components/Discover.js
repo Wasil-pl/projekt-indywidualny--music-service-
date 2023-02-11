@@ -8,11 +8,12 @@ class Discover {
 
     thisDiscover.songList = songList;
     thisDiscover.mostPopularMusic = mostPopularMusic;
+    console.log('mostPopularMusic:', mostPopularMusic);
 
     thisDiscover.getElements();
     thisDiscover.renderInMenu();
     thisDiscover.initSongs();
-    thisDiscover.getTwohighestObject();
+    //thisDiscover.getTwohighestObject();
     thisDiscover.randomSong();
   }
 
@@ -52,14 +53,14 @@ class Discover {
     thisDiscover.randomSongId = songListId[Math.floor(Math.random() * songListId.length)];
   }
 
-  getTwohighestObject() {
-    const thisDiscover = this;
+  static getTwohighestObject(mostPopularMusic) {
 
     const top2Categories = Object
-      .entries(thisDiscover.mostPopularMusic)
+      .entries(mostPopularMusic)
       .sort(({ 1: a }, { 1: b }) => b - a)
       .slice(0, 2)
       .map(([label, value]) => ({ label, value }));
+
 
     console.log('top2:', top2Categories);
   }

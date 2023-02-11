@@ -34,6 +34,8 @@ const app = {
 
         thisApp.activatePage(id);
 
+        Discover.getTwohighestObject(thisApp.mostPopularMusic);
+
         window.location.hash = '#/' + id;
       });
     }
@@ -103,7 +105,7 @@ const app = {
 
   initSearch() {
     const thisApp = this;
-    new Search(thisApp.data.songs);
+    new Search(thisApp.data.songs, thisApp.categoriesArray);
   },
 
   initDiscover() {

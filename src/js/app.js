@@ -1,10 +1,12 @@
-import { select, settings, classNames } from './settings.js';
+import { CATEGORIES_SEPARATOR, classNames, select, settings } from './settings.js';
 import Home from './components/Home.js';
 import Search from './components/Search.js';
 import Discover from './components/Discover.js';
 import CategoryWidget from './components/CategoryWidget.js';
 
 const app = {
+
+  mostPopularMusic: {},
 
   initPages: function(){
     const thisApp = this;
@@ -43,14 +45,14 @@ const app = {
     /* add class active to matching pages, remove from non-matching */
     for(let page of thisApp.pages){
       page.classList.toggle(
-        classNames.pages.active,
+        classNames.active,
         page.id == pageId
       );
     }
     /* add class active to matching links, remove from non-matching */
     for(let link of thisApp.navLinks) {
       link.classList.toggle(
-        classNames.nav.active,
+        classNames.active,
         link.getAttribute('href') == '#' + pageId
       );
     }
@@ -106,26 +108,26 @@ const app = {
 
   initDiscover() {
     const thisApp = this;
-    new Discover(thisApp.data.songs, thisApp.mostRecentCategory);
+    new Discover(thisApp.data.songs, thisApp.mostPopularMusic);
   },
 
   getCategories() {
     const thisApp = this;
 
-    thisApp.mostRecentCategory = [];
-
     const home = document.getElementById('home');
     const songs = home.getElementsByClassName('song');
 
     for ( let song of songs ) {
-      const playPauseBtn = song.querySelector('.play-pause-btn');
+      const playPauseBtn = song.querySelector(select.all.playPauseBtn);
       playPauseBtn.addEventListener('click', function(){
-        const categoriesArray = song.querySelector('.categories').innerHTML.replace('Categories: ', '').split(',');
-        console.log('categoriesLink:', categoriesArray);
+        const categoriesArray = song.querySelector(select.containerOf.songCategories).innerHTML.replace('Categories: ', '').split(CATEGORIES_SEPARATOR);
         for (let categories of categoriesArray) {
-          thisApp.mostRecentCategory.push(categories);
+          if (!thisApp.mostPopularMusic[categories]) {
+            thisApp.mostPopularMusic[categories] = 1;
+          } else {
+            thisApp.mostPopularMusic[categories]++;
+          }
         }
-        console.log('mostRecentCategory:', thisApp.mostRecentCategory);
       });
     }
   },

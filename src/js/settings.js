@@ -11,13 +11,15 @@ export const select = {
     pages: '#pages',
     search: '#search-list',
     songs: '#songs-list',
+    homeSongs: '.home-wrapper .song',
+    songCategories: '.categories',
     discover: '#discover-wrapper',
     categoryWidget: '#category-widget',
     categoryList: '.categories-list',
   },
   all: {
     player: '.player',
-    playPauseBtn: '#home .holder',
+    playPauseBtn: '.play-pause-btn',
     article: 'article',
   },
   nav: {
@@ -26,19 +28,8 @@ export const select = {
 };
 
 export const classNames = {
-  nav: {
-    active: 'active',
-  },
-  pages: {
-    active: 'active',
-  },
   active: 'active',
-  search: {
-    hidden: 'hidden',
-  },
-  discover: {
-    hidden: 'hidden',
-  },
+
   hidden: 'hidden',
 };
 
@@ -56,3 +47,5 @@ export const templates = {
   discover: Handlebars.compile(document.querySelector(select.templateOf.discover).innerHTML),
   categoryWidget: Handlebars.compile(document.querySelector(select.templateOf.categoryWidget).innerHTML),
 };
+
+export const CATEGORIES_SEPARATOR = ',';

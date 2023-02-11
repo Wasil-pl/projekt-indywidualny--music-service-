@@ -1,15 +1,16 @@
-import { classNames, select, templates } from '../settings.js';
+import { CATEGORIES_SEPARATOR, classNames, select, templates } from '../settings.js';
 import utils from '../utils.js';
 
 class CategoryWidget {
   constructor(categoriesArray) {
     const thisCategoryWidget = this;
 
+    thisCategoryWidget.selectedCategoryElement = null;
+
     thisCategoryWidget.categoriesArray = categoriesArray;
     thisCategoryWidget.getElements();
     thisCategoryWidget.renderInMenu();
     thisCategoryWidget.initAction();
-    //thisCategoryWidget.hiddingSongs();
   }
 
   getElements() {
@@ -34,50 +35,41 @@ class CategoryWidget {
     const categoriesList = document.querySelector(select.containerOf.categoryList);
     const allLinks = categoriesList.getElementsByTagName('li');
 
-    for (let link = 0; link < allLinks.length; link++) {
-      allLinks[link].addEventListener('click', function(event){
+    for (let link of allLinks) {
+      link.addEventListener('click', function(event){
         event.preventDefault();
         const clickedElement = this;
-        let clickedCategory = 0;
 
-        for (let link = 0; link < allLinks.length; link++) {
-          if (clickedElement != allLinks[link]) {
-            allLinks[link].classList.remove(classNames.active);
-          }
-
-          else if (clickedElement.classList.contains(classNames.active) === true) {
-            clickedElement.classList.remove(classNames.active);
-            clickedCategory = 0;
-          }
-
-          else {
-            clickedElement.classList.add(classNames.active);
-            clickedCategory = clickedElement.innerHTML.toLowerCase();
-          }
+        for (let link of allLinks) {
+          link.classList.remove(classNames.active);
         }
 
-        thisCategoryWidget.initfilter(clickedCategory);
+        if (clickedElement !== thisCategoryWidget.selectedCategoryElement) {
+          clickedElement.classList.add(classNames.active);
+          thisCategoryWidget.selectedCategoryElement = clickedElement;
+          const categoryText = clickedElement.innerHTML.toLowerCase();
+          return thisCategoryWidget.initFilter(categoryText);
+        }
+
+        thisCategoryWidget.selectedCategoryElement = null;
+        thisCategoryWidget.initFilter();
       });
     }
   }
 
-  initfilter (clickedCategory) {
-
-    const songs = document.querySelectorAll('.home-wrapper .song');
+  initFilter(clickedCategory) {
+    const songs = document.querySelectorAll(select.containerOf.homeSongs);
 
     for (let song of songs) {
-      const category = song.querySelector('.categories').innerHTML.toLowerCase().replace('categories: ', '').replace(',', ' ');
-      console.log('category:', category);
-
-      if (category.indexOf(clickedCategory) == -1) {
-        song.classList.add(classNames.hidden);
-      }
-
-      else {
+      if (!clickedCategory) {
         song.classList.remove(classNames.hidden);
+        continue;
       }
 
-      if ( clickedCategory == 0 ) {
+      song.classList.add(classNames.hidden);
+      const songCategories = song.querySelector(select.containerOf.songCategories).innerHTML.toLowerCase().split(CATEGORIES_SEPARATOR);
+
+      if (songCategories.includes(clickedCategory)) {
         song.classList.remove(classNames.hidden);
       }
     }

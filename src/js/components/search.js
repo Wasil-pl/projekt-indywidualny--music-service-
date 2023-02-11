@@ -40,7 +40,7 @@ class Search {
     }
 
     for ( let song of thisSearch.songs ) {
-      song.classList.add(classNames.search.hidden);
+      song.classList.add(classNames.hidden);
     }
   }
 
@@ -50,22 +50,14 @@ class Search {
     const input = document.getElementById('myInput');
 
     input.addEventListener('keyup', function(){
-      let search = input.value.toLowerCase();
+      const searchValue = input.value.toLowerCase();
 
       for (let song of thisSearch.songs){
-        const AuthorAndTitle = song.getAttribute('author-title').toLowerCase();
+        const authorAndTitle = song.getAttribute('author-title').toLowerCase();
+        song.classList.add(classNames.hidden);
 
-        if (AuthorAndTitle.indexOf(search) == -1) {
-          song.classList.add(classNames.search.hidden);
-
-        }
-
-        else if (AuthorAndTitle.indexOf(search) != -1) {
-          song.classList.remove(classNames.search.hidden);
-        }
-
-        if ( input.value == '') {
-          song.classList.add(classNames.search.hidden);
+        if (Boolean(searchValue) && authorAndTitle.includes(searchValue)) {
+          song.classList.remove(classNames.hidden);
         }
       }
     });

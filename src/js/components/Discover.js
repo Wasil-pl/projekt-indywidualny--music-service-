@@ -3,14 +3,16 @@ import SongPlayer from './SongPlayer.js';
 import utils from '../utils.js';
 
 class Discover {
-  constructor(songList, mostRecentCategory) {
+  constructor(songList, mostPopularMusic) {
     const thisDiscover = this;
 
     thisDiscover.songList = songList;
-    thisDiscover.mostRecentCategory = mostRecentCategory;
+    thisDiscover.mostPopularMusic = mostPopularMusic;
+
     thisDiscover.getElements();
     thisDiscover.renderInMenu();
     thisDiscover.initSongs();
+    thisDiscover.getTwohighestObject();
     thisDiscover.randomSong();
   }
 
@@ -44,10 +46,22 @@ class Discover {
     for (let song of thisDiscover.songs) {
       const songId = song.getAttribute('song-id');
       songListId.push(songId);
-      song.classList.add(classNames.discover.hidden);
+      song.classList.add(classNames.hidden);
     }
 
     thisDiscover.randomSongId = songListId[Math.floor(Math.random() * songListId.length)];
+  }
+
+  getTwohighestObject() {
+    const thisDiscover = this;
+
+    const top2Categories = Object
+      .entries(thisDiscover.mostPopularMusic)
+      .sort(({ 1: a }, { 1: b }) => b - a)
+      .slice(0, 2)
+      .map(([label, value]) => ({ label, value }));
+
+    console.log('top2:', top2Categories);
   }
 
   randomSong() {
@@ -56,10 +70,9 @@ class Discover {
     for (let song of thisDiscover.songs) {
       const songId = song.getAttribute('song-id');
       if ( songId === thisDiscover.randomSongId) {
-        song.classList.remove(classNames.discover.hidden);
+        song.classList.remove(classNames.hidden);
       }
     }
-
   }
 }
 

@@ -32,9 +32,13 @@ const app = {
 
         const id = clickedElement.getAttribute('href').replace('#', '');
 
+        if (id === 'discover'){
+          thisApp.discover.getTwohighestObject();
+          thisApp.discover.randomSong();
+        }
+
         thisApp.activatePage(id);
 
-        Discover.getTwohighestObject(thisApp.mostPopularMusic);
 
         window.location.hash = '#/' + id;
       });
@@ -110,7 +114,8 @@ const app = {
 
   initDiscover() {
     const thisApp = this;
-    new Discover(thisApp.data.songs, thisApp.mostPopularMusic);
+
+    thisApp.discover = new Discover(thisApp.data.songs, thisApp.mostPopularMusic);
   },
 
   getCategories() {
@@ -122,7 +127,7 @@ const app = {
     for ( let song of songs ) {
       const playPauseBtn = song.querySelector(select.all.playPauseBtn);
       playPauseBtn.addEventListener('click', function(){
-        const categoriesArray = song.querySelector(select.containerOf.songCategories).innerHTML.replace('Categories: ', '').split(CATEGORIES_SEPARATOR);
+        const categoriesArray = song.querySelector(select.containerOf.songCategories).innerHTML.toLowerCase().split(CATEGORIES_SEPARATOR);
         for (let categories of categoriesArray) {
           if (!thisApp.mostPopularMusic[categories]) {
             thisApp.mostPopularMusic[categories] = 1;

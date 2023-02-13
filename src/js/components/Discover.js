@@ -1,4 +1,4 @@
-import { classNames, select, templates } from '../settings.js';
+import { CATEGORIES_SEPARATOR, classNames, select, templates } from '../settings.js';
 import SongPlayer from './SongPlayer.js';
 import utils from '../utils.js';
 
@@ -13,7 +13,7 @@ class Discover {
     thisDiscover.getElements();
     thisDiscover.renderInMenu();
     thisDiscover.initSongs();
-    //thisDiscover.getTwohighestObject();
+    thisDiscover.getTwohighestObject();
     thisDiscover.randomSong();
   }
 
@@ -38,39 +38,48 @@ class Discover {
   initSongs() {
     const thisDiscover = this;
 
+    thisDiscover.songListId = [];
+
     for (let song in thisDiscover.songList){
       new SongPlayer (thisDiscover.songList[song], thisDiscover.dom.discoverContainer);
     }
 
-    const songListId = [];
-
     for (let song of thisDiscover.songs) {
-      const songId = song.getAttribute('song-id');
-      songListId.push(songId);
       song.classList.add(classNames.hidden);
+      const songId = song.getAttribute('song-id');
+      thisDiscover.songListId.push(songId);
     }
 
-    thisDiscover.randomSongId = songListId[Math.floor(Math.random() * songListId.length)];
+    thisDiscover.randomSong();
   }
 
-  static getTwohighestObject(mostPopularMusic) {
+  getTwohighestObject() {
+    const thisDiscover = this;
 
-    const top2Categories = Object
-      .entries(mostPopularMusic)
+    thisDiscover.top2Categories = Object
+      .entries(thisDiscover.mostPopularMusic)
       .sort(({ 1: a }, { 1: b }) => b - a)
       .slice(0, 2)
-      .map(([label, value]) => ({ label, value }));
-
-
-    console.log('top2:', top2Categories);
+      .map(([label]) => ([label]))
+      .flat();
   }
 
   randomSong() {
     const thisDiscover = this;
 
+    const randomSongId = thisDiscover.songListId[Math.floor(Math.random() * thisDiscover.songListId.length)];
+
     for (let song of thisDiscover.songs) {
       const songId = song.getAttribute('song-id');
-      if ( songId === thisDiscover.randomSongId) {
+      const songCategories = song.querySelector(select.containerOf.songCategories).innerHTML.toLowerCase().split(CATEGORIES_SEPARATOR);
+
+      song.classList.add(classNames.hidden);
+
+      if ( Boolean(thisDiscover.top2Categories) && songId.includes(randomSongId)) {
+        song.classList.remove(classNames.hidden);
+      }
+
+      if ( thisDiscover.top2Categories && songCategories.some(el => thisDiscover.top2Categories.includes(el)) && songId.includes(randomSongId)) {
         song.classList.remove(classNames.hidden);
       }
     }

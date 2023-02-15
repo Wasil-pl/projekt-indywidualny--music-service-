@@ -1,6 +1,7 @@
 import { CATEGORIES_SEPARATOR, classNames, select, templates } from '../settings.js';
 import SongPlayer from './SongPlayer.js';
 import utils from '../utils.js';
+import Footer from './Footer.js';
 
 class Search {
   constructor(songList, categoriesArray) {
@@ -13,6 +14,7 @@ class Search {
     thisSearch.renderInMenu();
     thisSearch.initSongs();
     thisSearch.searchSong();
+    thisSearch.initFooter();
   }
 
   getElements() {
@@ -71,6 +73,12 @@ class Search {
         }
       }
     });
+  }
+
+  initFooter() {
+    const thisSearch = this;
+
+    new Footer (thisSearch.dom.songsContainer);
   }
 }
 

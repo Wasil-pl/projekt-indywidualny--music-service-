@@ -1,6 +1,7 @@
 import { select } from '../settings.js';
 import Subscribe from './Subscribe.js';
 import SongPlayer from './SongPlayer.js';
+import Footer from './Footer.js';
 
 class Home {
   constructor(songList) {
@@ -10,6 +11,7 @@ class Home {
     thisHome.renderInMenu();
     thisHome.initSongs();
     thisHome.initSubscribe();
+    thisHome.initFooter();
   }
 
   renderInMenu() {
@@ -18,15 +20,21 @@ class Home {
   }
 
   initSongs() {
-    const thisSearch = this;
+    const thisHome = this;
 
-    for (let song in thisSearch.songList){
-      new SongPlayer (thisSearch.songList[song], thisSearch.songsContainer);
+    for (let song in thisHome.songList){
+      new SongPlayer (thisHome.songList[song], thisHome.songsContainer);
     }
   }
 
   initSubscribe() {
     new Subscribe();
+  }
+
+  initFooter() {
+    const thisHome = this;
+
+    new Footer(thisHome.songsContainer);
   }
 }
 

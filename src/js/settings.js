@@ -16,6 +16,7 @@ export const select = {
     discover: '#discover-wrapper',
     categoryWidget: '#category-widget',
     categoryList: '.categories-list',
+    randomtxt: '.random-text'
   },
   all: {
     player: '.player',

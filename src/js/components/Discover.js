@@ -8,7 +8,6 @@ class Discover {
 
     thisDiscover.songList = songList;
     thisDiscover.mostPopularMusic = mostPopularMusic;
-    console.log('mostPopularMusic:', mostPopularMusic);
 
     thisDiscover.getElements();
     thisDiscover.renderInMenu();
@@ -50,7 +49,7 @@ class Discover {
       thisDiscover.songListId.push(songId);
     }
 
-    thisDiscover.randomSong();
+    //thisDiscover.randomSong();
   }
 
   getTwohighestObject() {
@@ -62,25 +61,35 @@ class Discover {
       .slice(0, 2)
       .map(([label]) => ([label]))
       .flat();
+
+    thisDiscover.filteredSong = [];
+
+    for (let song of thisDiscover.songs) {
+      const songCategories = song.querySelector(select.containerOf.songCategories).innerHTML.toLowerCase().split(CATEGORIES_SEPARATOR);
+
+      if ( songCategories.some(el => thisDiscover.top2Categories.includes(el))) {
+        thisDiscover.filteredSong.push(song);
+      }
+    }
   }
 
   randomSong() {
     const thisDiscover = this;
 
     const randomSongId = thisDiscover.songListId[Math.floor(Math.random() * thisDiscover.songListId.length)];
+    const randomFilteredSong = thisDiscover.filteredSong[Math.floor(Math.random() * thisDiscover.filteredSong.length)];
 
     for (let song of thisDiscover.songs) {
       const songId = song.getAttribute('song-id');
-      const songCategories = song.querySelector(select.containerOf.songCategories).innerHTML.toLowerCase().split(CATEGORIES_SEPARATOR);
 
       song.classList.add(classNames.hidden);
 
-      if ( Boolean(thisDiscover.top2Categories) && songId.includes(randomSongId)) {
+      if ( !thisDiscover.top2Categories.length && songId.includes(randomSongId)) {
         song.classList.remove(classNames.hidden);
       }
 
-      if ( thisDiscover.top2Categories && songCategories.some(el => thisDiscover.top2Categories.includes(el)) && songId.includes(randomSongId)) {
-        song.classList.remove(classNames.hidden);
+      else if ( thisDiscover.filteredSong.length ) {
+        randomFilteredSong.classList.remove(classNames.hidden);
       }
     }
   }

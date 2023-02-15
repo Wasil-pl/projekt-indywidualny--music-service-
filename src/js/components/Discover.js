@@ -37,19 +37,14 @@ class Discover {
   initSongs() {
     const thisDiscover = this;
 
-    thisDiscover.songListId = [];
-
     for (let song in thisDiscover.songList){
       new SongPlayer (thisDiscover.songList[song], thisDiscover.dom.discoverContainer);
     }
 
     for (let song of thisDiscover.songs) {
       song.classList.add(classNames.hidden);
-      const songId = song.getAttribute('song-id');
-      thisDiscover.songListId.push(songId);
     }
 
-    //thisDiscover.randomSong();
   }
 
   getTwohighestObject() {
@@ -76,16 +71,14 @@ class Discover {
   randomSong() {
     const thisDiscover = this;
 
-    const randomSongId = thisDiscover.songListId[Math.floor(Math.random() * thisDiscover.songListId.length)];
+    const randomSong = thisDiscover.songs[Math.floor(Math.random() * thisDiscover.songs.length)];
     const randomFilteredSong = thisDiscover.filteredSong[Math.floor(Math.random() * thisDiscover.filteredSong.length)];
 
     for (let song of thisDiscover.songs) {
-      const songId = song.getAttribute('song-id');
-
       song.classList.add(classNames.hidden);
 
-      if ( !thisDiscover.top2Categories.length && songId.includes(randomSongId)) {
-        song.classList.remove(classNames.hidden);
+      if ( !thisDiscover.top2Categories.length ) {
+        randomSong.classList.remove(classNames.hidden);
       }
 
       else if ( thisDiscover.filteredSong.length ) {

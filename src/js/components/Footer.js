@@ -2,19 +2,19 @@ import { templates } from '../settings.js';
 import utils from '../utils.js';
 
 class Footer {
-  constructor(subscribeContainer) {
-    const thisSubscribe = this;
+  constructor(footerContainer) {
+    const thisFooter = this;
 
-    thisSubscribe.subscribeContainer = subscribeContainer;
-    thisSubscribe.renderInMenu();
+    thisFooter.footerContainer = footerContainer;
+    thisFooter.renderInMenu();
   }
 
   renderInMenu() {
-    const thisSubscribe = this;
+    const thisFooter = this;
 
     const generatedHTML = templates.footer();
-    thisSubscribe.element = utils.createDOMFromHTML(generatedHTML);
-    thisSubscribe.subscribeContainer.appendChild(thisSubscribe.element);
+    thisFooter.element = utils.createDOMFromHTML(generatedHTML);
+    thisFooter.footerContainer.appendChild(thisFooter.element);
 
   }
 }

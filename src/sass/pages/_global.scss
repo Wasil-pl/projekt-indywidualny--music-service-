@@ -28,6 +28,10 @@ body {
     color: $color-light;
     cursor: pointer;
   }
+
+  .hidden {
+    display: none;
+  }
 }
 
 .footer {

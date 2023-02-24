@@ -58,27 +58,29 @@
   </script>
 
   <script id="template-search" type="text/x-handlebars-template">
-    <div class="search-container">
-      <div class="search-input">
-        <h3>search</h3>
-        <p>Name</p>
-        <input type="text" id="myInput"  placeholder="Search for song..">
-      </div>
-      <div class="search-category">
-        <div class="label">
-          <p>Category</p>
+    <div class="search-wrapper">
+      <h3>search</h3>
+      <div class="search-container wrapper">
+        <div class="search-input wrapper">
+          <p>Name</p>
+          <input type="text" id="myInput"  placeholder="Search for song..">
         </div>
-        <div class="search-select">
-          <select name="categories" id="myCategories" class="categories-select">
-            <option value=""></option>
-            {{#each categories}}
-            <option value="{{ this }}">{{ this }}</option>
-            {{/each}}
-          </select>
+        <div class="search-category wrapper">
+          <div class="label">
+            <p>Category</p>
+          </div>
+          <div class="search-select">
+            <select name="categories" id="myCategories" class="categories-select">
+              <option value=""></option>
+              {{#each categories}}
+              <option value="{{ this }}">{{ this }}</option>
+              {{/each}}
+            </select>
+          </div>
         </div>
-      </div>
-      <div class="search-submit-container">
-        <button type="submit" class="search-btn">Search</button>
+        <div class="search-submit-container">
+          <button type="submit" class="search-btn button">Search</button>
+        </div>
       </div>
       <div class="txt-number-of-songs">
       </div>

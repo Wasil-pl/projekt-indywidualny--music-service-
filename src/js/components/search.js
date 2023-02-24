@@ -79,12 +79,12 @@ class Search {
       txtFoundSongs.innerHTML = '';
 
       if (numberOfSongsArray.length === 1) {
-        const songsFoundHtml = '<h4>We have found ' + numberOfSongsArray.length + ' song</h4>';
+        const songsFoundHtml = '<p>We have found ' + numberOfSongsArray.length + ' song</p>';
         txtFoundSongs.insertAdjacentHTML('beforeend', songsFoundHtml);
       }
 
       else {
-        const songsFoundHtml = '<h4>We have found ' + numberOfSongsArray.length + ' songs</h4>';
+        const songsFoundHtml = '<p>We have found ' + numberOfSongsArray.length + ' songs</p>';
         txtFoundSongs.insertAdjacentHTML('beforeend', songsFoundHtml);
       }
     });

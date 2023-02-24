@@ -12,6 +12,26 @@ body {
     color: inherit;
     text-decoration: none;
   }
+
+  .button {
+    width: 313px;
+    height: 133px;
+    background-color: $color-red;
+    box-shadow: 0 0 118px 24px rgba(0, 0, 0, 0.11);
+    border: none;
+    border-radius: 10px;
+    font-size: 40px;
+    font-weight: $font-bold;
+    line-height: 27px;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    color: $color-light;
+    cursor: pointer;
+  }
+}
+
+.footer {
+  margin-top: auto;
 }
 
 #pages {
@@ -23,3 +43,29 @@ body {
     display: block;
   }
 }
+
+.song {
+  .songTitle {
+    letter-spacing: 2.25px;
+    font-size: 30px;
+    font-weight: $font-semibold;
+    margin-top: 40px;
+
+    .author {
+      text-transform: uppercase;
+    }
+  }
+
+  .description-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 570px;
+    margin: auto;
+
+    h4 {
+      letter-spacing: 1.5px;
+      color: $color-grey;
+    }
+  }
+}
+

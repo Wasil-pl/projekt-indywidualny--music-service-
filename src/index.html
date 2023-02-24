@@ -48,14 +48,12 @@
 
   <script id="template-category-widget" type="text/x-handlebars-template">
     <div class="category-container">
-      <div>
-        <h3>Categories</h3>
-        <ul class="categories-list">
-          {{#each categories}}
-          <li>{{ this }}</li>
-          {{/each}}
-        </ul>
-      </div>
+      <h3>Categories</h3>
+      <ul class="categories-list">
+        {{#each categories}}
+        <li>{{ this }}</li>
+        {{/each}}
+      </ul>
     </div>
   </script>
 
@@ -82,6 +80,8 @@
       <div class="search-submit-container">
         <button type="submit" class="search-btn">Search</button>
       </div>
+      <div class="txt-number-of-songs">
+      </div>
     </div>
   </script>
 
@@ -104,20 +104,25 @@
   </script>
 
   <script id="template-subscribe" type="text/x-handlebars-template">
-    <article class="subscripe">
-      <h3>subscripe now</h3>
-      <div>
-        <button type="button">Join now</button>
-      </div>
-      <div>
-        <h4>Dean <br>Hen<span class="son">son</span></h4>
-      </div>
-      <div>
-        <img src="images/artist.jpg" alt="artist">
-      </div>
-      <div>
-        <h4>new album</h4>
-        <p>Available only for subscribers</p>
+    <article class="subscribe">
+      <h3>subscribe <span class="now">now</span></h3>
+      <div class="subscribe-inside wrapper">
+        <div class="btn-container">
+          <a href="#"><button class="button" type="button">Join Now</button></a>
+        </div>
+        <div class="picture-container">
+          <div class="picture">
+            <img src="images/artist.jpg" alt="artist">
+            <div class="author">
+              <h4>Dean</h4>
+              <h4>Hen<span class="son">son</span></h4>
+            </div>
+          </div>
+          <div class="album-descryption">
+            <h4>new album</h4>
+            <p>Available only for subscribers</p>
+          </div>
+        </div>
       </div>
     </article>
   </script>
@@ -129,11 +134,9 @@
     </div>
   </script>
 
-  <script id="template-footer" type="text/x-handlebars-template">
-    <footer class="footer">
-      <h3>All rights reserved</h3>
-    </footer>
-  </script>
+  <footer class="footer">
+    <h3>All rights reserved</h3>
+  </footer>
 
   <script src="vendor/green-audio-player.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>

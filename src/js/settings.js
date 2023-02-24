@@ -5,7 +5,6 @@ export const select = {
     search: '#template-search',
     discover: '#template-discover',
     categoryWidget: '#template-category-widget',
-    footer: '#template-footer',
   },
   containerOf: {
     home: '#home-wrapper',
@@ -17,7 +16,8 @@ export const select = {
     discover: '#discover-wrapper',
     categoryWidget: '#category-widget',
     categoryList: '.categories-list',
-    randomtxt: '.random-text'
+    numberOfSongsTxt: '.txt-number-of-songs'
+
   },
   all: {
     player: '.player',
@@ -49,7 +49,6 @@ export const templates = {
   search: Handlebars.compile(document.querySelector(select.templateOf.search).innerHTML),
   discover: Handlebars.compile(document.querySelector(select.templateOf.discover).innerHTML),
   categoryWidget: Handlebars.compile(document.querySelector(select.templateOf.categoryWidget).innerHTML),
-  footer: Handlebars.compile(document.querySelector(select.templateOf.footer).innerHTML),
 };
 
 export const CATEGORIES_SEPARATOR = ',';

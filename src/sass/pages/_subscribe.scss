@@ -1,0 +1,94 @@
+.subscribe {
+  background-image: url('../../images/subscribe.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 100px;
+  position: relative;
+  height: 1023px;
+  padding: 1px;
+
+  h3 {
+    position: absolute;
+    font-size: 100px;
+    line-height: 27px;
+    text-transform: uppercase;
+    letter-spacing: 20px;
+    font-weight: $font-semibold;
+    left: 50%;
+    top: -10%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+
+    .now {
+      font-weight: $font-black;
+    }
+  }
+
+  .subscribe-inside {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 180px;
+
+    .picture-container {
+      .picture {
+        position: relative;
+
+        img {
+          max-width: 465px;
+        }
+
+        .author {
+          position: absolute;
+          letter-spacing: 20px;
+          font-size: 100px;
+          font-weight: $font-black;
+          top: 65%;
+          left: -30%;
+          transform: translate(-50%, -50%);
+
+          h4 {
+            margin: 0;
+          }
+
+          h4:nth-of-type(1) {
+            position: absolute;
+            right: -140px;
+            top: -100px;
+          }
+
+          h4:nth-of-type(2) {
+            position: absolute;
+            left: -90px;
+          }
+
+          .son {
+            color: $color-red;
+          }
+        }
+      }
+
+      .album-descryption {
+        font-size: 40px;
+        text-align: right;
+        letter-spacing: 8px;
+        position: absolute;
+        right: 300px;
+
+        h4 {
+          font-weight: $font-bold;
+          color: $color-grey;
+          margin: 10px;
+          text-transform: uppercase;
+        }
+
+        p {
+          font-weight: $font-semibold;
+          color: $color-light;
+          margin: 10px;
+        }
+      }
+    }
+  }
+
+}

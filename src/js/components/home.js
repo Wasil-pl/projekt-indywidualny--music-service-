@@ -1,7 +1,6 @@
 import { select } from '../settings.js';
 import Subscribe from './Subscribe.js';
 import SongPlayer from './SongPlayer.js';
-import Footer from './Footer.js';
 
 class Home {
   constructor(songList) {
@@ -11,7 +10,6 @@ class Home {
     thisHome.renderInMenu();
     thisHome.initSongs();
     thisHome.initSubscribe();
-    thisHome.initFooter();
   }
 
   renderInMenu() {
@@ -29,12 +27,6 @@ class Home {
 
   initSubscribe() {
     new Subscribe();
-  }
-
-  initFooter() {
-    const thisHome = this;
-
-    new Footer(thisHome.songsContainer);
   }
 }
 

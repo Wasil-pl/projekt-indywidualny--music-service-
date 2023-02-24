@@ -1,7 +1,6 @@
 import { CATEGORIES_SEPARATOR, classNames, select, templates } from '../settings.js';
 import SongPlayer from './SongPlayer.js';
 import utils from '../utils.js';
-import Footer from './Footer.js';
 
 class Discover {
   constructor(songList, mostPopularMusic) {
@@ -15,7 +14,6 @@ class Discover {
     thisDiscover.initSongs();
     thisDiscover.getTwohighestObject();
     thisDiscover.randomSong();
-    thisDiscover.initFooter();
   }
 
   getElements() {
@@ -87,12 +85,6 @@ class Discover {
         randomFilteredSong.classList.remove(classNames.hidden);
       }
     }
-  }
-
-  initFooter() {
-    const thisDiscover = this;
-
-    new Footer (thisDiscover.dom.discoverContainer);
   }
 }
 

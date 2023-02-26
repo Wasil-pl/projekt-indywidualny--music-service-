@@ -13,6 +13,15 @@ body {
     text-decoration: none;
   }
 
+  .pages-title {
+    color: $color-grey;
+    font-weight: $font-semibold;
+    text-transform: uppercase;
+    letter-spacing: 12px;
+    font-size: 60px;
+    margin: 114px 0 99px;
+  }
+
   .button {
     width: 313px;
     height: 133px;

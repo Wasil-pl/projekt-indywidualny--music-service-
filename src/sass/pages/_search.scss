@@ -1,15 +1,6 @@
 .search-wrapper {
-
   .wrapper {
     align-items: center;
-  }
-
-  h3 {
-    color: $color-grey;
-    font-weight: $font-semibold;
-    text-transform: uppercase;
-    letter-spacing: 12px;
-    font-size: 60px;
   }
 
   p {
@@ -39,6 +30,10 @@
     width: 139px;
     font-size: 20px;
     letter-spacing: 4px;
+  }
+
+  .txt-number-of-songs p {
+    margin: 90px 0;
   }
 }
 

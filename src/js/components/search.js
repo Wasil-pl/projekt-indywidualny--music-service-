@@ -77,14 +77,13 @@ class Search {
       }
 
       txtFoundSongs.innerHTML = '';
+      const songsFoundHtml = '<p>We have found ' + numberOfSongsArray.length + ' songs</p>';
 
       if (numberOfSongsArray.length === 1) {
-        const songsFoundHtml = '<p>We have found ' + numberOfSongsArray.length + ' song</p>';
-        txtFoundSongs.insertAdjacentHTML('beforeend', songsFoundHtml);
+        txtFoundSongs.insertAdjacentHTML('beforeend', songsFoundHtml).replace('songs', 'song');
       }
 
       else {
-        const songsFoundHtml = '<p>We have found ' + numberOfSongsArray.length + ' songs</p>';
         txtFoundSongs.insertAdjacentHTML('beforeend', songsFoundHtml);
       }
     });

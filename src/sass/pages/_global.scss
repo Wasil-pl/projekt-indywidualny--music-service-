@@ -82,3 +82,16 @@ body {
   }
 }
 
+@media (max-width: 700px) {
+  .song {
+    .songTitle {
+      letter-spacing: 2px;
+      font-size: 27px;
+    }
+
+    .description-wrapper {
+      flex-direction: column;
+    }
+  }
+}
+

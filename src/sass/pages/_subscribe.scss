@@ -33,9 +33,12 @@
     .picture-container {
       .picture {
         position: relative;
+        max-width: 465px;
 
         img {
-          max-width: 465px;
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
         }
 
         .author {
@@ -73,7 +76,7 @@
         text-align: right;
         letter-spacing: 8px;
         position: absolute;
-        right: 300px;
+        right: 15%;
 
         h4 {
           font-weight: $font-bold;
@@ -90,5 +93,129 @@
       }
     }
   }
+}
 
+@media (max-width: 1490px) {
+.subscribe .subscribe-inside {
+    flex-direction: column-reverse;
+    margin-top: 140px;
+
+    .btn-container {
+      margin-top: 220px;
+
+      .button {
+        width: 213px;
+        height: 100px;
+        font-size: 25px;
+      }
+    }
+
+    .picture-container {
+      margin-left: 20%;
+
+      .picture {
+        max-width: 365px;
+
+        .author {
+          font-size: 80px;
+
+          h4:nth-of-type(1) {
+            right: -120px;
+          }
+        }
+      }
+
+      .album-descryption {
+        left: 15%;
+        text-align: left;
+        font-size: 30px;
+        margin-top: 50px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .subscribe {
+    h3 {
+      font-size: 70px;
+      top: -7%;
+    }
+  }
+}
+
+@media (max-width: 960px) {
+  .subscribe {
+    h3 {
+      font-size: 50px;
+      top: -5%;
+    }
+
+    .subscribe-inside .picture-container {
+
+      .picture {
+        max-width: 300px;
+
+        .author {
+          font-size: 70px;
+
+          h4:nth-of-type(1) {
+            right: -100px;
+          }
+        }
+      }
+
+      .album-descryption {
+        left: 15%;
+        text-align: left;
+        font-size: 25px;
+        margin-top: 50px;
+      }
+    }
+  }
+}
+
+@media (max-width: 730px) {
+  .subscribe {
+    h3 {
+      font-size: 35px;
+      top: -3.5%;
+    }
+
+    .subscribe-inside {
+      .btn-container {
+        margin-top: 300px;
+
+        .button {
+          width: 180px;
+          height: 80px;
+          font-size: 20px;
+        }
+      }
+
+      .picture-container {
+        .picture {
+          max-width: 250px;
+
+          .author {
+            font-size: 50px;
+            letter-spacing: 10px;
+            left: -10%;
+
+            h4:nth-of-type(1) {
+              right: -30px;
+              top: -70px;
+            }
+          }
+        }
+
+        .album-descryption {
+          left: 20%;
+          text-align: left;
+          font-size: 25px;
+          margin-top: 50px;
+        }
+      }
+    }
+  }
 }

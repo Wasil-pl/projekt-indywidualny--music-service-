@@ -29,3 +29,42 @@
     }
   }
 }
+
+@media (max-width: 1190px) {
+  .header .logo {
+    .logo__title {
+      font-size: 170px;
+      letter-spacing: 80px;
+    }
+
+    .logo__subtitle {
+      font-size: 30px;
+    }
+  }
+}
+
+@media (max-width: 960px) {
+  .header .logo {
+    .logo__title {
+      font-size: 120px;
+      letter-spacing: 50px;
+    }
+
+    .logo__subtitle {
+      font-size: 25px;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .header .logo {
+    .logo__title {
+      font-size: 100px;
+      letter-spacing: 40px;
+    }
+
+    .logo__subtitle {
+      font-size: 20px;
+    }
+  }
+}

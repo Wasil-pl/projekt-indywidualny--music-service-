@@ -15,3 +15,9 @@
     color: $color-light;
   }
 }
+
+@media (max-width: 700px) {
+  .main-nav a {
+    margin: 0 15px;
+  }
+}

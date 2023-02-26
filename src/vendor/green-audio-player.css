@@ -169,3 +169,10 @@
   position: absolute;
   width: 1px;
   word-wrap: normal; }
+
+  @media (max-width: 700px) {
+    .green-audio-player {
+      width: 450px;
+      height: 70px;
+    }
+  }

@@ -24,6 +24,7 @@ class Search {
     };
 
     thisSearch.songs = thisSearch.dom.songsContainer.getElementsByTagName(select.all.article);
+
   }
 
   renderInMenu() {

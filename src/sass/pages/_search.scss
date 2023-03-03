@@ -37,3 +37,35 @@
   }
 }
 
+@media (max-width: 500px) {
+  .search-wrapper {
+    .wrapper {
+      flex-direction: column;
+    }
+
+    p {
+      font-size: 24px;
+      margin-right: 0;
+    }
+
+    #myInput {
+      width: 255px;
+      height: 49px;
+      margin-right: 0;
+    }
+
+    #myCategories {
+      width: 100px;
+      height: 49px;
+      margin-right: 0;
+    }
+
+    .search-btn {
+      margin-top: 20px;
+      height: 49px;
+      width: 109px;
+      font-size: 15px;
+    }
+  }
+}
+

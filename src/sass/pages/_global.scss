@@ -91,7 +91,21 @@ body {
 
     .description-wrapper {
       flex-direction: column;
+      width: unset;
     }
+  }
+}
+
+@media (max-width: 550px) {
+  .song .songTitle {
+    letter-spacing: 2px;
+    font-size: 20px;
+  }
+
+  body .pages-title {
+    letter-spacing: 10px;
+    font-size: 50px;
+    margin: 100px 0 80px;
   }
 }
 

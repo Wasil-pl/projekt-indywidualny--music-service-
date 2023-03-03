@@ -218,3 +218,84 @@
     }
   }
 }
+
+@media (max-width: 550px) {
+  .subscribe {
+    h3 {
+      font-size: 25px;
+      top: -2.5%;
+      letter-spacing: 10px;
+
+    }
+
+    .subscribe-inside {
+      .btn-container {
+        margin-top: 300px;
+
+        .button {
+          width: 150px;
+          height: 60px;
+          font-size: 15px;
+        }
+      }
+
+      .picture-container {
+        .picture {
+          max-width: 200px;
+
+          .author {
+            font-size: 40px;
+            letter-spacing: 10px;
+            left: -12%;
+
+            h4:nth-of-type(2) {
+              right: -30px;
+              left: -75px;
+            }
+          }
+        }
+
+        .album-descryption {
+          left: 20%;
+          text-align: left;
+          font-size: 20px;
+          margin-top: 50px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 374px) {
+  .subscribe {
+    h3 {
+      font-size: 20px;
+      top: -2%;
+    }
+
+    .subscribe-inside {
+      .picture-container {
+        .picture {
+          max-width: 150px;
+
+          .author {
+            font-size: 24px;
+            left: -18%;
+
+            h4:nth-of-type(1) {
+              top: -50px;
+            }
+
+            h4:nth-of-type(2) {
+              left: -45px;
+            }
+          }
+        }
+
+        .album-descryption {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}

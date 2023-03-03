@@ -1,6 +1,12 @@
-import { CATEGORIES_SEPARATOR, classNames, select, templates } from '../settings.js';
+import { CATEGORIES_SEPARATOR, classNames, iD, select, templates } from '../settings.js';
 import SongPlayer from './SongPlayer.js';
 import utils from '../utils.js';
+
+const formatSongExtension = function(numberOfSongs) {
+  if (numberOfSongs === 1) return '';
+  if (numberOfSongs >= 3) return 's to check out!';
+  return 's';
+};
 
 class Search {
   constructor(songList, categoriesArray) {
@@ -10,7 +16,7 @@ class Search {
     thisSearch.categoriesArray = categoriesArray;
 
     thisSearch.getElements();
-    thisSearch.renderInMenu();
+    thisSearch.render();
     thisSearch.initSongs();
     thisSearch.searchSong();
   }
@@ -26,7 +32,7 @@ class Search {
     thisSearch.songs = thisSearch.dom.songsContainer.getElementsByTagName(select.all.article);
   }
 
-  renderInMenu() {
+  render() {
     const thisSearch = this;
 
     const generatedHTML = templates.search(thisSearch.categoriesArray);
@@ -49,9 +55,9 @@ class Search {
   searchSong() {
     const thisSearch = this;
 
-    const searchBtn = document.querySelector(select.all.searchBtn);
-    const inputValue = document.getElementById('myInput');
-    const selectCategory = document.getElementById('myCategories');
+    const searchBtn = thisSearch.dom.searchContainer.querySelector(select.all.searchBtn);
+    const inputValue = document.getElementById(iD.search.myInput);
+    const selectCategory = document.getElementById(iD.search.myCategories);
     const txtFoundSongs = document.querySelector(select.containerOf.numberOfSongsTxt);
 
     searchBtn.addEventListener('click', function(e){
@@ -73,20 +79,15 @@ class Search {
         } else if (Boolean(searchValue) && authorAndTitle.includes(searchValue) && songCategories.includes(selectedCategoryValue)) {
           song.classList.remove(classNames.hidden);
           numberOfSongsArray.push(song);
+        } else if (songCategories.includes(selectedCategoryValue)) {
+          song.classList.remove(classNames.hidden);
+          numberOfSongsArray.push(song);
         }
       }
 
-      txtFoundSongs.innerHTML = '';
-
-      if (numberOfSongsArray.length === 1) {
-        const songsFoundHtml = '<p>We have found ' + numberOfSongsArray.length + ' song</p>';
-        txtFoundSongs.insertAdjacentHTML('beforeend', songsFoundHtml);
-      }
-
-      else {
-        const songsFoundHtml = '<p>We have found ' + numberOfSongsArray.length + ' songs</p>';
-        txtFoundSongs.insertAdjacentHTML('beforeend', songsFoundHtml);
-      }
+      const numberOfSongs = numberOfSongsArray.length;
+      const songsFoundHtml = `<p>We have found ${numberOfSongs} song${formatSongExtension(numberOfSongs)}</p>`;
+      txtFoundSongs.innerHTML = songsFoundHtml;
     });
   }
 }

@@ -9,7 +9,7 @@ class CategoryWidget {
 
     thisCategoryWidget.categoriesArray = categoriesArray;
     thisCategoryWidget.getElements();
-    thisCategoryWidget.renderInMenu();
+    thisCategoryWidget.render();
     thisCategoryWidget.initAction();
   }
 
@@ -21,7 +21,7 @@ class CategoryWidget {
     };
   }
 
-  renderInMenu() {
+  render() {
     const thisCategoryWidget = this;
 
     const generatedHTML = templates.categoryWidget(thisCategoryWidget.categoriesArray);

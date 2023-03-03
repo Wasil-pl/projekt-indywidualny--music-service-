@@ -79,18 +79,15 @@ class Search {
         } else if (Boolean(searchValue) && authorAndTitle.includes(searchValue) && songCategories.includes(selectedCategoryValue)) {
           song.classList.remove(classNames.hidden);
           numberOfSongsArray.push(song);
-
         } else if (songCategories.includes(selectedCategoryValue)) {
           song.classList.remove(classNames.hidden);
           numberOfSongsArray.push(song);
         }
       }
 
-
       const numberOfSongs = numberOfSongsArray.length;
       const songsFoundHtml = `<p>We have found ${numberOfSongs} song${formatSongExtension(numberOfSongs)}</p>`;
       txtFoundSongs.innerHTML = songsFoundHtml;
-
     });
   }
 }

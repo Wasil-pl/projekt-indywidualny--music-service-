@@ -5,10 +5,10 @@ class Subscribe {
   constructor() {
     const thisSubscribe = this;
 
-    thisSubscribe.renderInMenu();
+    thisSubscribe.render();
   }
 
-  renderInMenu() {
+  render() {
     const thisSubscribe = this;
 
     const generatedHTML = templates.subscribe();

@@ -10,10 +10,10 @@ class Discover {
     thisDiscover.mostPopularMusic = mostPopularMusic;
 
     thisDiscover.getElements();
-    thisDiscover.renderInMenu();
+    thisDiscover.render();
     thisDiscover.initSongs();
-    thisDiscover.getTwohighestObject();
-    thisDiscover.randomSong();
+    thisDiscover.getSongsOfTopCategories();
+    thisDiscover.displayRandomSong();
   }
 
   getElements() {
@@ -26,7 +26,7 @@ class Discover {
     thisDiscover.songs = thisDiscover.dom.discoverContainer.getElementsByTagName(select.all.article);
   }
 
-  renderInMenu() {
+  render() {
     const thisDiscover = this;
 
     const generatedHTML = templates.discover();
@@ -47,12 +47,12 @@ class Discover {
 
   }
 
-  getTwohighestObject() {
+  getSongsOfTopCategories() {
     const thisDiscover = this;
 
     thisDiscover.top2Categories = Object
       .entries(thisDiscover.mostPopularMusic)
-      .sort(({ 1: a }, { 1: b }) => b - a)
+      .sort(([ ,a ], [ ,b ]) => b - a)
       .slice(0, 2)
       .map(([label]) => ([label]))
       .flat();
@@ -68,7 +68,7 @@ class Discover {
     }
   }
 
-  randomSong() {
+  displayRandomSong() {
     const thisDiscover = this;
 
     const randomSong = thisDiscover.songs[Math.floor(Math.random() * thisDiscover.songs.length)];
@@ -85,6 +85,13 @@ class Discover {
         randomFilteredSong.classList.remove(classNames.hidden);
       }
     }
+  }
+
+  onPageActive() {
+    const thisDiscover = this;
+
+    thisDiscover.getSongsOfTopCategories();
+    thisDiscover.displayRandomSong();
   }
 }
 

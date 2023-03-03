@@ -33,8 +33,7 @@ const app = {
         const id = clickedElement.getAttribute('href').replace('#', '');
 
         if (id === 'discover'){
-          thisApp.discover.getTwohighestObject();
-          thisApp.discover.randomSong();
+          thisApp.discover.onPageActive();
         }
 
         thisApp.activatePage(id);

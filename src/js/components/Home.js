@@ -7,12 +7,12 @@ class Home {
     const thisHome = this;
 
     thisHome.songList = songList;
-    thisHome.renderInMenu();
+    thisHome.render();
     thisHome.initSongs();
     thisHome.initSubscribe();
   }
 
-  renderInMenu() {
+  render() {
     const thisHome = this;
     thisHome.songsContainer = document.querySelector(select.containerOf.home);
   }

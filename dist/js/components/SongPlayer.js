@@ -8,10 +8,10 @@ class SongPlayer {
     thisSongs.data = data;
     thisSongs.songContainer = songContainer;
 
-    thisSongs.renderInMenu();
+    thisSongs.render();
   }
 
-  renderInMenu() {
+  render() {
     const thisSongs = this;
 
     const generatedHTML = templates.menuSongs(thisSongs.data);

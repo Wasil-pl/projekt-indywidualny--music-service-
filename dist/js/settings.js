@@ -51,4 +51,11 @@ export const templates = {
   categoryWidget: Handlebars.compile(document.querySelector(select.templateOf.categoryWidget).innerHTML),
 };
 
+export const iD = {
+  search: {
+    myInput: 'myInput',
+    myCategories: 'myCategories',
+  }
+};
+
 export const CATEGORIES_SEPARATOR = ',';

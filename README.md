@@ -1,1 +1,1 @@
-https://projekt-indywidualny-music-service-.wasil-pl.repl.co/#/discover
+https://projekt-indywidualny-music-service-.wasil-pl.repl.co/#/home

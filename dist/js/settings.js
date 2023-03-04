@@ -55,6 +55,7 @@ export const iD = {
   search: {
     myInput: 'myInput',
     myCategories: 'myCategories',
+    authorTitle: 'author-title',
   }
 };
 

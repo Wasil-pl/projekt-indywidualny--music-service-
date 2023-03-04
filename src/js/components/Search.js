@@ -67,7 +67,7 @@ class Search {
       const numberOfSongsArray = [];
 
       for (let song of thisSearch.songs){
-        const authorAndTitle = song.getAttribute('author-title').toLowerCase();
+        const authorAndTitle = song.getAttribute(iD.search.authorTitle).toLowerCase();
         const songCategories = song.querySelector(select.containerOf.songCategories).innerHTML.toLowerCase().split(CATEGORIES_SEPARATOR);
 
         song.classList.add(classNames.hidden);
@@ -75,11 +75,14 @@ class Search {
         if (!selectedCategoryValue && Boolean(searchValue) && authorAndTitle.includes(searchValue)) {
           song.classList.remove(classNames.hidden);
           numberOfSongsArray.push(song);
+        }
 
-        } else if (Boolean(searchValue) && authorAndTitle.includes(searchValue) && songCategories.includes(selectedCategoryValue)) {
+        if (Boolean(searchValue) && authorAndTitle.includes(searchValue) && songCategories.includes(selectedCategoryValue)) {
           song.classList.remove(classNames.hidden);
           numberOfSongsArray.push(song);
-        } else if (songCategories.includes(selectedCategoryValue)) {
+        }
+
+        if (!searchValue && songCategories.includes(selectedCategoryValue)) {
           song.classList.remove(classNames.hidden);
           numberOfSongsArray.push(song);
         }
